@@ -1,4 +1,4 @@
-# Title of Repo
+# Sparkify – Data modeling with Postgres <!-- omit in toc -->
 
 <!-- Add buttons here -->
 [![Open in Colab](https://img.shields.io/badge/-Open%20in%20Colab-e8710a?logo=google-colab)](https://colab.research.google.com/github/dewith/property_prices)
@@ -13,17 +13,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <details>
 <summary><b>Table of content</b></summary>
 
-- [Title of Repo](#title-of-repo)
-  - [Motivation 🎯](#motivation-)
-  - [Datasets 💾](#datasets-)
-  - [Process ✍](#process-)
-    - [Methods used 📜](#methods-used-)
-    - [Tools 🧰](#tools-)
-  - [Results 📣](#results-)
-    - [Next steps 💡](#next-steps-)
-  - [Installation 💻](#installation-)
-  - [File structure 📓](#file-structure-)
-  - [Contact 📞](#contact-)
+- [Motivation 🎯](#motivation-)
+- [Datasets 💾](#datasets-)
+- [Process ✍](#process-)
+  - [Methods used 📜](#methods-used-)
+  - [Tools 🧰](#tools-)
+- [Results 📣](#results-)
+  - [Next steps 💡](#next-steps-)
+- [Installation 💻](#installation-)
+- [File structure 📓](#file-structure-)
+- [Contact 📞](#contact-)
 
 </details>
 
