@@ -109,12 +109,14 @@ A small subset (\~120MB) of the full dataset was used for exploratory data analy
 
 ## Results 📣
 
-- In the project I studied in detail the predictor variables and their relationships with the target variable. Based on the exploratory analysis I found that the variables that best predict the price of a property are the surface area_covered and the number of bathrooms. An average error of 49k USD was achieved with the best model (XGBoost), which is equivalent to 16.8% average error.:
+In the project I studied in detail the predictor variables and their relationships with the target variable. Based on the exploratory analysis I found that the variables that best predict the price of a property are the surface area_covered and the number of bathrooms. An average error of 49k USD was achieved with the best model (XGBoost), which is equivalent to 16.8% average error:
+
 |testing accuracy score|testing F1 score|
 |--------|--------|
 | 0.8387 | 0.8229 |
 
-- Churns relate to users who have received more advertisements, disliked songs more often than liked, and registered more recently.
+Churns relate to users who have received more advertisements, disliked songs more often than liked, and registered more recently.
+
 <img src="feature_importance.png" width=500>
 
 ### Next steps 💡
@@ -151,4 +153,4 @@ To improve the performance of the model the following steps could be taken (orde
 - connect with me on [**LinkedIn**](https://linkedin.com/in/dewithmiramon/),
 - or check out the rest of my projects on my [**GitHub**](https://github.com/dewith/) profile.
 
-[(Back to top)](#motivation)
+[(Back to top)](#motivation-)
