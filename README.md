@@ -1,14 +1,14 @@
 # Sparkify – Data modeling with Postgres <!-- omit in toc -->
 
 <!-- Add buttons here -->
-[![Open in Colab](https://img.shields.io/badge/-Open%20in%20Colab-e8710a?logo=google-colab)](https://colab.research.google.com/github/dewith/property_prices)
+[![Open in Colab](https://img.shields.io/badge/-Open%20in%20Colab-e8710a?logo=google-colab)](https://colab.research.google.com/github/dewith/sparkify_postgres)
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-black)](https://www.python.org/)
 ![Status](https://img.shields.io/badge/Project%20status-Completed-black)
-![Last commit](https://img.shields.io/github/last-commit/dewith/property_prices?color=black)
-![License](https://img.shields.io/github/license/dewith/property_prices?color=black)
+![Last commit](https://img.shields.io/github/last-commit/dewith/sparkify_postgres?color=black)
+![License](https://img.shields.io/github/license/dewith/sparkify_postgres?color=black)
 <!-- End buttons here -->
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+This project uses Postgres (with its Python interface) to create a relational database and a ETL pipeline for a non-real music streaming app called Sparkify.
 
 <details>
 <summary><b>Table of content</b></summary>
@@ -30,22 +30,29 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ## Motivation 🎯
 
-The company's property appraisers do the valuation in the traditional way, this means that the process is subjective to the appraiser's criteria.
-Currently the process is slow, and there is a risk of under- or over-valuing a property. This in turn generates customer dissatisfaction.
+A startup called Sparkify wants to analyze the data they've been collecting on songs and user activity on their new music streaming app. The analytics team is particularly interested in understanding what songs users are listening to. Currently, they don't have an easy way to query their data, which resides in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app. So they would like a data engineer to create a Postgres database with tables designed to optimize queries on song play analysis.
 
-> The **objective** is then to create a model based on advanced machine learning techniques to predict real estate prices based on their attributes.
+> The **objective** is then to design an star schema for the database and write an ETL pipeline to transfer data from files into the tables in Postgres.
 
 ## Datasets 💾
 
-- **User activity dataset** from [Udacity](https://www.udacity.com/) <br>
-    The dataset logs user demographic information (e.g. user name, gender, location State) and activity (e.g. song listened, event type, device used) at individual timestamps.
+- **Song Dataset** — subset from [Million Song Dataset](http://millionsongdataset.com/)
 
-- **Census regions table** from [cphalpert's GitHub](https://github.com/cphalpert/census-regions) <br>
-  The table links State names to geographical divisions.
+    Each file is in JSON format and contains metadata about a song and the artist of that song. The files are partitioned by the first three letters of each song's track ID. For example, here are filepaths to two files in this dataset. <br>
+    ```
+    song_data/A/B/C/TRABCEI128F424C983.json
+    song_data/A/A/B/TRAABJL12903CDCF1A.json
+    ```
+- **Log Dataset** — generated with [Eventsim](https://github.com/Interana/eventsim)
 
-A small subset (\~120MB) of the full dataset was used for exploratory data analysis and pilot modeling; the full dataset (\~12GB) was used for tuning the machine learning model.
+  The log files are in JSON format and were generated based on the songs in the dataset above. These simulate activity logs from a music streaming app based on specified configurations.
+  The log files in the dataset are partitioned by year and month. For example, here are filepaths to two files in this dataset.
+  ```
+  log_data/2018/11/2018-11-12-events.json
+  log_data/2018/11/2018-11-13-events.json
+  ```
 
-## Process ✍
+## Process ✍ to-do
 
 1. Data loading
    - Load subset from JSON
@@ -95,19 +102,17 @@ A small subset (\~120MB) of the full dataset was used for exploratory data analy
 
 ### Methods used 📜
 
-- Descriptive statistics
-- Data visualization
-- Feature engineering
-- Machine learning
+- Data modeling
+- ETL pipelines
 
 ### Tools 🧰
 
 - Python
-- Numpy, Pandas, Scipy
-- Matplotlib, Seaborn
-- Scikit-Learn, XGBoost
+- PostgreSQL
+- Psycopg2
+- Pandas
 
-## Results 📣
+## Results 📣 to-do
 
 In the project I studied in detail the predictor variables and their relationships with the target variable. Based on the exploratory analysis I found that the variables that best predict the price of a property are the surface area_covered and the number of bathrooms. An average error of 49k USD was achieved with the best model (XGBoost), which is equivalent to 16.8% average error:
 
@@ -121,15 +126,13 @@ Churns relate to users who have received more advertisements, disliked songs mor
 
 ### Next steps 💡
 
-To improve the performance of the model the following steps could be taken (ordered by ascending complexity):
+To improve the performance and quality of the pipeline, the following steps could be taken:
 
-1. Only work with data from one city when training a model, this reduces variability and therefore decreases error
-2. Add the neighborhood variable in the training (this will increase the computer cost but can generate a non-spectacular but considerable gain)
-3. Create a model by type of property: one for apartments and another for houses, because although both are habitable properties they have very different behaviors. In this way you can focus actions to reduce the error independently.
-4. Complement the dataset with more specific data on the property's environment, such as the crime rate by area, socioeconomic status, and the number of businesses in the vicinity, among others.
-5. Work with geolocation data combined with an API map to obtain the number of stores and areas of interest around automatically, as well as prices of nearby houses.
+1. Insert data using the COPY command to bulk insert log files instead of using INSERT on one row at a time
+2. Add data quality checks
+3. Create a dashboard for analytic queries on your new database
 
-## Installation 💻
+## Installation 💻 to-do
 
 - **Prototype on local machine:** The code was developed using the Anaconda distribution of Python, versions 3. Libraries used include `PySpark`, `Pandas`, `Seaborn`, and `Matplotlib`.
 
@@ -141,10 +144,11 @@ To improve the performance of the model the following steps could be taken (orde
 
 ## File structure 📓
 
-- `Sparkify.ipynb`: exploratory data analysis, data preprocessing, and pilot development of machine learning model on local machine using data subset.
-- `Sparkify_AWS.ipynb`: data preprocessing and model tuning on AWS using the full dataset.
-- `mini_sparkify_event_data.json`: subset of user activity data.
-- `region.csv`: census regions table.
+- `create_tables.py` drops and creates the tables.
+- `etl.ipynb` reads and processes a single file from song_data and log_data and loads the data into the tables. This notebook was made to test the code before using in _etl.py_.
+- `etl.py` reads and processes files from _song_data_ and _log_data_ and loads them into the tables.
+- `sql_queries.py` contains all the sql queries, and is imported into the last three files above.
+- `test.ipynb` displays the first few rows of each table to check the database.
 
 ## Contact 📞
 
