@@ -8,7 +8,7 @@
 ![License](https://img.shields.io/github/license/dewith/sparkify_postgres?color=black)
 <!-- End buttons here -->
 
-This project uses Postgres (with its Python interface) to create a relational database and a ETL pipeline for a non-real music streaming app called Sparkify.
+This project uses Postgres (with psycopg2, its interface in Python) to create a relational database and a ETL pipeline for a non-real music streaming app called Sparkify.
 
 <details>
 <summary><b>Table of content</b></summary>
@@ -54,56 +54,12 @@ A startup called Sparkify wants to analyze the data they've been collecting on s
 
 ## Process ✍ to-do
 
-1. Data loading
-   - Load subset from JSON
-   - Assess missing values
-
-2. Exploratory data analysis
-   - Overview of numerical columns: descriptive statistics
-   - Overview of non-numerical columns: possibel categories
-   - Define churn as cancellation of service
-   - Compare behavior of churn vs. non-churn users in terms of:
-     - Usage at different hours of the day
-     - Usage at different days of a week
-     - User level (free vs. paid)
-     - Event types (e.g. add a friend, advertisement, thumbs up)
-     - Device used (e.g. Mac, Windows)
-     - User location (e.g. New England, Pacific)
-     - Time from downgrade to churn
-
-3. Feature engineering for machine learning
-   - Create features on per user basis:
-     - Latest user level
-     - Time since registration
-     - Gender of user
-     - Time, number of artists, number of songs, and number of session that user has engaged
-     - Mean and standard deviation of the number of songs listened per artist, the number of songs listened per session, and time spent per session
-     - Device used
-     - Count and proportion of each event type
-     - User location
-   - Remove strongly correlated features (one from each pair)
-   - Transform features to have distributions closer to normal
-   - Compile feature engineering code to scale up later
-
-4. Develop machine learning pipeline
-   - Split training and testing sets
-   - Choose evaluation metrics
-   - Create functions to build cross validation pipeline, train machine learning model, and evaluate model performance
-   - Initial model evaluation with:
-     - Naive predictor
-     - Logistic regression
-     - Random forest
-     - Gradient-boosted tree
-
-5. Scale up machine learning on the full dataset on AWS
-   - Tune hyperparameters of gradient-boosted tree
-   - Evaluate model performance
-   - Evaluate feature importance
+Lorem ipsum
 
 ### Methods used 📜
 
 - Data modeling
-- ETL pipelines
+- ETL pipeline building
 
 ### Tools 🧰
 
@@ -114,15 +70,7 @@ A startup called Sparkify wants to analyze the data they've been collecting on s
 
 ## Results 📣 to-do
 
-In the project I studied in detail the predictor variables and their relationships with the target variable. Based on the exploratory analysis I found that the variables that best predict the price of a property are the surface area_covered and the number of bathrooms. An average error of 49k USD was achieved with the best model (XGBoost), which is equivalent to 16.8% average error:
-
-|testing accuracy score|testing F1 score|
-|--------|--------|
-| 0.8387 | 0.8229 |
-
-Churns relate to users who have received more advertisements, disliked songs more often than liked, and registered more recently.
-
-<img src="feature_importance.png" width=500>
+Lorem ipsum
 
 ### Next steps 💡
 
