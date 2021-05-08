@@ -17,15 +17,16 @@ def process_song_file(cur, filepath):
         The filepath with the JSON files containing song information.
     """
     df = pd.read_json(filepath, lines=True)
-
-    # insert song record
-    song_data = df[['song_id', 'title', 'artist_id',
-                    'year', 'duration']].values[0].tolist()
-    cur.execute(song_table_insert, song_data)
+    
     # insert artist record
     artist_data = df[['artist_id', 'artist_name', 'artist_location',
                       'artist_latitude', 'artist_longitude']].values[0].tolist()
     cur.execute(artist_table_insert, artist_data)
+    
+    # insert song record
+    song_data = df[['song_id', 'title', 'artist_id',
+                    'year', 'duration']].values[0].tolist()
+    cur.execute(song_table_insert, song_data)
 
 
 def process_log_file(cur, filepath):
@@ -39,7 +40,7 @@ def process_log_file(cur, filepath):
     filepath : str
         The filepath with the JSON files containing song plays information.
     """
-    df = pd.read_json(filepath, lines=True)¡
+    df = pd.read_json(filepath, lines=True)
     df = df.loc[df.page == 'NextSong', :]
 
     # insert time data records
@@ -74,7 +75,6 @@ def process_log_file(cur, filepath):
             songid, artistid = None, None
 
         songplay_data = {
-            'songplay_id': row.registration,
             'start_time': row.ts,
             'user_id': row.userId,
             'level': row.level,
@@ -128,5 +128,6 @@ def main():
 
     conn.close()
 
+    
 if __name__ == "__main__":
     main()
