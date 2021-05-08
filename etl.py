@@ -6,14 +6,22 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
-    # open song file
+    """Process JSON files and insert data in songs and artists tables 
+    of the database.
+
+    Parameters
+    ----------
+    cur : psycopg2.extensions.cursor
+        Allows Python code to execute PostgreSQL command in a database session.
+    filepath : str
+        The filepath with the JSON files containing song information.
+    """
     df = pd.read_json(filepath, lines=True)
 
     # insert song record
     song_data = df[['song_id', 'title', 'artist_id',
                     'year', 'duration']].values[0].tolist()
     cur.execute(song_table_insert, song_data)
-
     # insert artist record
     artist_data = df[['artist_id', 'artist_name', 'artist_location',
                       'artist_latitude', 'artist_longitude']].values[0].tolist()
@@ -21,17 +29,22 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
-    # open log file
-    df = pd.read_json(filepath, lines=True)
+    """Process JSON files and insert data in time, users and songplays tables 
+    of the database.
 
-    # filter by NextSong action
+    Parameters
+    ----------
+    cur : psycopg2.extensions.cursor
+        Allows Python code to execute PostgreSQL command in a database session.
+    filepath : str
+        The filepath with the JSON files containing song plays information.
+    """
+    df = pd.read_json(filepath, lines=True)¡
     df = df.loc[df.page == 'NextSong', :]
 
-    # convert timestamp column to datetime
+    # insert time data records
     df['ts'] = pd.to_datetime(df.ts, unit='ms')
     t = df['ts']
-
-    # insert time data records
     time_data = {
         'start_time': t,
         'hour': t.dt.hour,
@@ -42,21 +55,16 @@ def process_log_file(cur, filepath):
         'weekday': t.dt.weekday
     }
     time_df = pd.DataFrame(data=time_data)
-
     for i, row in time_df.iterrows():
         cur.execute(time_table_insert, list(row))
 
-    # load user table
-    user_df = df.loc[:, ['userId', 'firstName', 'lastName', 'gender', 'level']]
-
     # insert user records
+    user_df = df.loc[:, ['userId', 'firstName', 'lastName', 'gender', 'level']]
     for i, row in user_df.iterrows():
         cur.execute(user_table_insert, row)
 
     # insert songplay records
     for index, row in df.iterrows():
-
-        # get songid and artistid from song and artist tables
         cur.execute(song_select, (row.song, row.artist, row.length))
         results = cur.fetchone()
 
@@ -65,7 +73,6 @@ def process_log_file(cur, filepath):
         else:
             songid, artistid = None, None
 
-        # insert songplay record
         songplay_data = {
             'songplay_id': row.registration,
             'start_time': row.ts,
@@ -81,6 +88,20 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    """[summary]
+
+    Parameters
+    ----------
+    cur : psycopg2.extensions.cursor
+        Allows Python code to execute PostgreSQL command in a database session.
+    conn : psycopg2.extensions.connection
+        Handles the connection to a PostgreSQL database instance. 
+    filepath : str
+        Path with the JSON files containing the data to be processed.
+    func : callable
+        Function to process the files in filepath and isert records in the 
+        connection using the cursor.
+    """
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
@@ -88,11 +109,9 @@ def process_data(cur, conn, filepath, func):
         for f in files :
             all_files.append(os.path.abspath(f))
 
-    # get total number of files found
     num_files = len(all_files)
     print('{} files found in {}'.format(num_files, filepath))
 
-    # iterate over files and process
     for i, datafile in enumerate(all_files, 1):
         func(cur, datafile)
         conn.commit()
