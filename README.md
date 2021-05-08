@@ -8,7 +8,7 @@
 ![License](https://img.shields.io/github/license/dewith/sparkify_postgres?color=black)
 <!-- End buttons here -->
 
-This project uses PostgreSQL (with Psycopg2, its interface in Python) to create a relational database and a ETL pipeline for a non-real music streaming app called Sparkify.
+This project uses PostgreSQL (with Psycopg2) to create a relational database and a ETL pipeline for a non-real music streaming app called Sparkify.
 
 <details>
 <summary><b>Table of content</b></summary>
@@ -55,15 +55,15 @@ A startup called Sparkify wants to analyze the data they've been collecting on s
 ## Process ✍
 
 1. Creation of tables.
-  - Understanding the needs for the database
-  - Design of schema for the relational database
-  - Writing SQL queries for creation in a Python script.
+    - Understanding the needs for the database
+    - Design of schema for the relational database
+    - Writing SQL queries for creation in a Python script.
 2. Building of ETL processes.
-  - Development of ETL process for each table in a notebook.
-  - Checking successful insertion of records.
+    - Development of ETL process for each table in a notebook.
+    - Checking successful insertion of records.
 3. Building of ETL pipeline.
-  - Development of script to process the entire datasets.
-  - Checking the correct operation of the pipeline for inserting records.
+    - Development of script to process the entire datasets.
+    - Checking the correct operation of the pipeline for inserting records.
 
 ### Methods used 📜
 
