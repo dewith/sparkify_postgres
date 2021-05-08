@@ -13,7 +13,7 @@ This project uses Postgres (with psycopg2, its interface in Python) to create a 
 <details>
 <summary><b>Table of content</b></summary>
 
-- [Motivation 🎯](#motivation-)
+- [Motivation](#motivation-)
 - [Datasets 💾](#datasets-)
 - [Process ✍](#process-)
   - [Methods used 📜](#methods-used-)
@@ -52,9 +52,18 @@ A startup called Sparkify wants to analyze the data they've been collecting on s
   log_data/2018/11/2018-11-13-events.json
   ```
 
-## Process ✍ to-do
+## Process ✍
 
-Lorem ipsum
+1. Creation of tables.
+  - Understanding the needs for the database
+  - Design of schema for the relational database
+  - Writing SQL queries for creation in a Python script.
+2. Building of ETL processes.
+  - Development of ETL process for each table in a notebook.
+  - Checking successful insertion of records.
+3. Building of ETL pipeline.
+  - Development of script to process the entire datasets.
+  - Checking the correct operation of the pipeline for inserting records.
 
 ### Methods used 📜
 
@@ -80,15 +89,17 @@ To improve the performance and quality of the pipeline, the following steps coul
 2. Add data quality checks
 3. Create a dashboard for analytic queries on your new database
 
-## Installation 💻 to-do
+## Installation 💻
 
-- **Prototype on local machine:** The code was developed using the Anaconda distribution of Python, versions 3. Libraries used include `PySpark`, `Pandas`, `Seaborn`, and `Matplotlib`.
+- **Udacity's AWS Workspace:** The code was originally developed in JupyterLab, mainly using the libraries `Psycopg2` and `Pandas`.
 
-- **Cloud deployment on [AWS EMR](https://aws.amazon.com/):**
-  - Release: emr-5.20.0
-  - Applications: Spark: Spark 2.4.0 on Hadoop 2.8.5 YARN with Ganglia 3.7.2 and Zeppelin 0.8.0
-  - Instance type: m4.xlarge
-  - Number of instance: 3
+- **Local machine:** The project can be executed locally by meeting these requirements:
+  - python==3.6.3
+  - conda==4.6.14
+  - jupyterlab==1.0.9
+  - ipython-sql==0.3.9
+  - psycopg2==2.7.4
+  - pandas==0.23.3
 
 ## File structure 📓
 
