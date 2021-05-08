@@ -13,16 +13,16 @@ This project uses PostgreSQL (with Psycopg2) to create a relational database and
 <details>
 <summary><b>Table of content</b></summary>
 
-- [Motivation](#motivation)
-- [Datasets](#datasets)
-- [Process](#process)
-  - [Methods used](#methods-used)
-  - [Tools](#tools)
-- [Results](#results)
-  - [Next steps](#next-steps)
-- [Installation](#installation)
-- [File structure](#file-structure)
-- [Contact](#contact)
+- [Motivation](#motivation-)
+- [Datasets](#datasets-)
+- [Process](#process-)
+  - [Methods used](#methods-used-)
+  - [Tools](#tools-)
+- [Results](#results-)
+  - [Next steps](#next-steps-)
+- [Installation](#installation-)
+- [File structure](#file-structure-)
+- [Contact](#contact-)
 
 </details>
 
@@ -116,4 +116,4 @@ To improve the performance and quality of the pipeline, the following steps coul
 - connect with me on [**LinkedIn**](https://linkedin.com/in/dewithmiramon/),
 - or check out the rest of my projects on my [**GitHub**](https://github.com/dewith/) profile.
 
-[(Back to top)](#motivation)
+[(Back to top)](#motivation-)
