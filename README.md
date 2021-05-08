@@ -132,7 +132,7 @@ To improve the performance and quality of the pipeline, the following steps coul
 
 ## Installation 💻
 
-- **Udacity's AWS Workspace:** The code was originally developed in JupyterLab, mainly using the libraries [Psycopg2](https://www.psycopg.org/docs/) and [Pandas](https://pandas.pydata.org/). But it can be executed locally by meeting these requirements:
+- The code was originally developed on the **Udacity's AWS Workspace** using in JupyterLab, mainly with the libraries [Psycopg2](https://www.psycopg.org/docs/) and [Pandas](https://pandas.pydata.org/). But it can be executed locally by meeting these requirements:
   - `python==3.6.3`
   - `conda==4.6.14`
   - `jupyterlab==1.0.9`
