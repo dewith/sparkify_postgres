@@ -79,9 +79,17 @@ A startup called Sparkify wants to analyze the data they've been collecting on s
 
 ## Results 📣
 
-The chosen schema for the analytical purposes stated is a star schema, because it is a simple database design, with a single fact table which contains the aggregated data. Because data structure is denormalized, the queries and cube processing will be faster than in a snowflake schema.
+For the analytical purposes stated, a star schema was chosen because it is an ideally simple database design, with a single fact table which contains the aggregated data. And because data structure is denormalized, the queries and cube processing will be faster than in a snowflake schema.
 
 The database contains these tables:
+
+| Type | Name | Description       | Columns |
+| :--------- | :----------- | :--------- | :----------- |
+| Fact | songplays | Users activity in the app  |  `songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent` |
+| Dimension | users | Users in the app | `user_id, first_name, last_name, gender, level` |
+| Dimension | songs | Songs in music database | `song_id, title, artist_id, year, duration` |
+| Dimension | artists | Artists in music database |`artist_id, name, location, latitude, longitude`|
+| Dimension | time | Timestamps into specific units |`start_time, hour, day, week, month, year, weekday`|
 
 **Fact Table**
 1. **songplays** — records in log data associated with song plays
