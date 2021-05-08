@@ -8,21 +8,21 @@
 ![License](https://img.shields.io/github/license/dewith/sparkify_postgres?color=black)
 <!-- End buttons here -->
 
-This project uses Postgres (with psycopg2, its interface in Python) to create a relational database and a ETL pipeline for a non-real music streaming app called Sparkify.
+This project uses PostgreSQL (with Psycopg2, its interface in Python) to create a relational database and a ETL pipeline for a non-real music streaming app called Sparkify.
 
 <details>
 <summary><b>Table of content</b></summary>
 
-- [Motivation](#motivation-)
-- [Datasets 💾](#datasets-)
-- [Process ✍](#process-)
-  - [Methods used 📜](#methods-used-)
-  - [Tools 🧰](#tools-)
-- [Results 📣](#results-)
-  - [Next steps 💡](#next-steps-)
-- [Installation 💻](#installation-)
-- [File structure 📓](#file-structure-)
-- [Contact 📞](#contact-)
+- [Motivation](#motivation)
+- [Datasets](#datasets)
+- [Process](#process)
+  - [Methods used](#methods-used)
+  - [Tools](#tools)
+- [Results](#results)
+  - [Next steps](#next-steps)
+- [Installation](#installation)
+- [File structure](#file-structure)
+- [Contact](#contact)
 
 </details>
 
@@ -91,15 +91,15 @@ To improve the performance and quality of the pipeline, the following steps coul
 
 ## Installation 💻
 
-- **Udacity's AWS Workspace:** The code was originally developed in JupyterLab, mainly using the libraries `Psycopg2` and `Pandas`.
+- **Udacity's AWS Workspace:** The code was originally developed in JupyterLab, mainly using the libraries [Psycopg2](https://www.psycopg.org/docs/) and [Pandas](https://pandas.pydata.org/).
 
 - **Local machine:** The project can be executed locally by meeting these requirements:
-  - python==3.6.3
-  - conda==4.6.14
-  - jupyterlab==1.0.9
-  - ipython-sql==0.3.9
-  - psycopg2==2.7.4
-  - pandas==0.23.3
+  - `python==3.6.3`
+  - `conda==4.6.14`
+  - `jupyterlab==1.0.9`
+  - `ipython-sql==0.3.9`
+  - `psycopg2==2.7.4`
+  - `pandas==0.23.3`
 
 ## File structure 📓
 
@@ -116,4 +116,4 @@ To improve the performance and quality of the pipeline, the following steps coul
 - connect with me on [**LinkedIn**](https://linkedin.com/in/dewithmiramon/),
 - or check out the rest of my projects on my [**GitHub**](https://github.com/dewith/) profile.
 
-[(Back to top)](#motivation-)
+[(Back to top)](#motivation)
