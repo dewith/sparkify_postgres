@@ -26,7 +26,7 @@ This project uses PostgreSQL (with Psycopg2) to create a relational database and
 
 </details>
 
----
+<br>
 
 ## Motivation 🎯
 
@@ -91,20 +91,6 @@ The database contains these tables:
 | Dimension | artists | Artists in music database |`artist_id, name, location, latitude, longitude`|
 | Dimension | time | Timestamps into specific units |`start_time, hour, day, week, month, year, weekday`|
 
-**Fact Table**
-1. **songplays** — records in log data associated with song plays
-    - `songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent`
-**Dimension Tables**
-2. **users** — users in the app
-    - `user_id, first_name, last_name, gender, level`
-3. **songs** — songs in music database
-    - `song_id, title, artist_id, year, duration`
-4. **artists** — artists in music database
-    - `artist_id, name, location, latitude, longitude`
-5. **time** — timestamps of records in songplays broken down into specific units
-    - `start_time, hour, day, week, month, year, weekday`
-
-<br>
 
 This is an **example query** to find out which free users listen to music the most. This can be used by the marketing team to make special offers to convert them to the premium plan.
 ```
