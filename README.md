@@ -77,9 +77,40 @@ A startup called Sparkify wants to analyze the data they've been collecting on s
 - Psycopg2
 - Pandas
 
-## Results 📣 to-do
+## Results 📣
 
-Lorem ipsum
+The chosen schema for the analytical purposes stated is a star schema, because it is a simple database design, with a single fact table which contains the aggregated data. Because data structure is denormalized, the queries and cube processing will be faster than in a snowflake schema.
+
+The database contains these tables:
+
+**Fact Table**
+1. **songplays** — records in log data associated with song plays
+    - `songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent`
+**Dimension Tables**
+2. **users** — users in the app
+    - `user_id, first_name, last_name, gender, level`
+3. **songs** — songs in music database
+    - `song_id, title, artist_id, year, duration`
+4. **artists** — artists in music database
+    - `artist_id, name, location, latitude, longitude`
+5. **time** — timestamps of records in songplays broken down into specific units
+    - `start_time, hour, day, week, month, year, weekday`
+
+<br>
+
+This is an **example query** to find out which free users listen to music the most. This can be used by the marketing team to make special offers to convert them to the premium plan.
+```
+SELECT s.user_id,
+       Count(*) AS songplays_count
+FROM   songplays AS s
+       JOIN users AS u
+         ON s.user_id = u.user_id
+WHERE  u.level = 'free'
+GROUP  BY s.user_id
+ORDER  BY songplays_count DESC
+LIMIT  10;
+```
+
 
 ### Next steps 💡
 
