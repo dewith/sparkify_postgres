@@ -105,6 +105,22 @@ ORDER  BY songplays_count DESC
 LIMIT  10;
 ```
 
+These are screenshots of the final tables:
+
+**songplays** <br>
+<img src="images\df_songplays.png" width=800>
+
+**users** <br>
+<img src="images\df_users.png" width=250>
+
+**songs** <br>
+<img src="images\df_songs.png" width=500>
+
+**artists** <br>
+<img src="images\df_artists.png" width=500>
+
+**time** <br>
+<img src="images\df_time.png" width=400>
 
 ### Next steps 💡
 
