@@ -88,7 +88,7 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
-    """[summary]
+    """Process data inside json files of a directory using the function provided.
 
     Parameters
     ----------
