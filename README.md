@@ -8,7 +8,7 @@
 ![License](https://img.shields.io/github/license/dewith/sparkify_postgres?color=black)
 <!-- End buttons here -->
 
-This project uses PostgreSQL (with Psycopg2) to create a relational database and a ETL pipeline for a non-real music streaming app called Sparkify.
+This project uses PostgreSQL (with Psycopg2) to create a relational database and an ETL pipeline for a non-real music streaming app called Sparkify.
 
 <details>
 <summary><b>Table of content</b></summary>
@@ -116,9 +116,7 @@ To improve the performance and quality of the pipeline, the following steps coul
 
 ## Installation 💻
 
-- **Udacity's AWS Workspace:** The code was originally developed in JupyterLab, mainly using the libraries [Psycopg2](https://www.psycopg.org/docs/) and [Pandas](https://pandas.pydata.org/).
-
-- **Local machine:** The project can be executed locally by meeting these requirements:
+- **Udacity's AWS Workspace:** The code was originally developed in JupyterLab, mainly using the libraries [Psycopg2](https://www.psycopg.org/docs/) and [Pandas](https://pandas.pydata.org/). But it can be executed locally by meeting these requirements:
   - `python==3.6.3`
   - `conda==4.6.14`
   - `jupyterlab==1.0.9`
