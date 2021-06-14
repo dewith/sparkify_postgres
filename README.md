@@ -91,9 +91,8 @@ The database contains these tables:
 | Dimension | artists | Artists in music database |`artist_id, name, location, latitude, longitude`|
 | Dimension | time | Timestamps into specific units |`start_time, hour, day, week, month, year, weekday`|
 
-
 This is an **example query** to find out which free users listen to music the most. This can be used by the marketing team to make special offers to convert them to the premium plan.
-```
+```sql
 SELECT s.user_id,
        Count(*) AS songplays_count
 FROM   songplays AS s
@@ -150,7 +149,7 @@ To improve the performance and quality of the pipeline, the following steps coul
 
 ## Contact 📞
 
-- You can visit my [**personal website**](https://dewith.co/),
+- You can visit my [**personal website**](https://dewithmiramon.com/),
 - follow me on [**Twitter**](https://twitter.com/DewithMiramon/),
 - connect with me on [**LinkedIn**](https://linkedin.com/in/dewithmiramon/),
 - or check out the rest of my projects on my [**GitHub**](https://github.com/dewith/) profile.
