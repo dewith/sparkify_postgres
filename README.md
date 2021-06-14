@@ -8,7 +8,7 @@
 ![License](https://img.shields.io/github/license/dewith/sparkify_postgres?color=black)
 <!-- End buttons here -->
 
-This project uses PostgreSQL (with Psycopg2) to create a relational database and an ETL pipeline for a non-real music streaming app called Sparkify.
+For this project I used PostgreSQL (with Psycopg2) to create a relational database and Python to build an ETL pipeline for a non-real music streaming app called Sparkify.
 
 <details>
 <summary><b>Table of content</b></summary>
@@ -38,16 +38,17 @@ A startup called Sparkify wants to analyze the data they've been collecting on s
 
 - **Song Dataset** — subset from [Million Song Dataset](http://millionsongdataset.com/)
 
-    Each file is in JSON format and contains metadata about a song and the artist of that song. The files are partitioned by the first three letters of each song's track ID. For example, here are filepaths to two files in this dataset. <br>
-    ```
+    Each file is in JSON format and contains metadata about a song and the artist of that song. The files are partitioned by the first three letters of each song's track ID. For example, here are filepaths to two files in this dataset.
+    ```text
     song_data/A/B/C/TRABCEI128F424C983.json
     song_data/A/A/B/TRAABJL12903CDCF1A.json
     ```
+
 - **Log Dataset** — generated with [Eventsim](https://github.com/Interana/eventsim)
 
   The log files are in JSON format and were generated based on the songs in the dataset above. These simulate activity logs from a music streaming app based on specified configurations.
   The log files in the dataset are partitioned by year and month. For example, here are filepaths to two files in this dataset.
-  ```
+  ```text
   log_data/2018/11/2018-11-12-events.json
   log_data/2018/11/2018-11-13-events.json
   ```
@@ -132,20 +133,27 @@ To improve the performance and quality of the pipeline, the following steps coul
 ## Installation 💻
 
 - The code was originally developed on the **Udacity's AWS Workspace** using in JupyterLab, mainly with the libraries [Psycopg2](https://www.psycopg.org/docs/) and [Pandas](https://pandas.pydata.org/). But it can be executed locally by meeting these requirements:
+
   - `python==3.6.3`
   - `conda==4.6.14`
   - `jupyterlab==1.0.9`
   - `ipython-sql==0.3.9`
   - `psycopg2==2.7.4`
   - `pandas==0.23.3`
-
+  
+  And a PostreSQL engine installed, of course.
+  
 ## File structure 📓
 
-- `create_tables.py` drops and creates the tables.
-- `etl.ipynb` reads and processes a single file from song_data and log_data and loads the data into the tables. This notebook was made to test the code before using in _etl.py_.
-- `etl.py` reads and processes files from _song_data_ and _log_data_ and loads them into the tables.
-- `sql_queries.py` contains all the sql queries, and is imported into the last three files above.
-- `test.ipynb` displays the first few rows of each table to check the database.
+- **`create_tables.py`** drops and creates the tables.
+
+- **`etl.ipynb`** reads and processes a single file from song_data and log_data and loads the data into the tables. This notebook was made to test the code before using in `etl.py`.
+
+- **`etl.py`** reads and processes files from `song_data` and `log_data` and loads them into the tables.
+
+- **`sql_queries.py`** contains all the sql queries, and is imported into the last three files above.
+
+- **`test.ipynb`** displays the first few rows of each table to check the database.
 
 ## Contact 📞
 
